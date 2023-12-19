@@ -8,6 +8,10 @@ import tempfile
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to team Quantangle's FastAPI application!"} 
+
 rf = Roboflow(api_key="oVWDq3G9R53AAGqZLHuR")
 project = rf.workspace().project("ai4growth-coding-challange")
 model = project.version(7).model
