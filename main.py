@@ -25,7 +25,7 @@ async def predict(file: UploadFile = File(...)):
     temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
     image.save(temp_file, 'JPEG')
     
-    data = model.predict(temp_file.name, confidence=70, overlap=30).json()
+    data = model.predict(temp_file.name, confidence=60, overlap=30).json()
 
     if data['predictions']:
         for prediction in data['predictions']:
